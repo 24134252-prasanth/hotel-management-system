@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.hotels-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.hotel-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    border-radius: 8px;
+}
+.btn {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    background: blue;
+    border-radius: 5px;
+}
+.btn-success {
+    background: green;
+}
+.btn-secondary {
+    background: grey;
+}
+
+/* */
