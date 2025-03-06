@@ -17,7 +17,8 @@ const BookingPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("http://localhost:5000/bookings", {
+        // fetch("http://localhost:5000/bookings", {
+            fetch("https://hotel-management-system-es78.onrender.com/bookings", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ hotelId: id, ...formData }),

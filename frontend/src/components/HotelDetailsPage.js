@@ -7,7 +7,8 @@ const HotelDetailsPage = () => {
     const [hotel, setHotel] = useState(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/hotels/${id}`)
+        //fetch(`http://localhost:5000/hotels/${id}`)
+        fetch(`https://hotel-management-system-es78.onrender.com/hotels/${id}`)
             .then((response) => response.json())
             .then((data) => setHotel(data))
             .catch((error) => console.error("Error fetching hotel details:", error));

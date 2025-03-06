@@ -6,7 +6,8 @@ const HotelsPage = () => {
     const [hotels, setHotels] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/hotels")
+        // fetch("http://localhost:5000/hotels")
+        fetch("https://hotel-management-system-es78.onrender.com/hotels")
             .then((response) => response.json())
             .then((data) => setHotels(data))
             .catch((error) => console.error("Error fetching hotels:", error));

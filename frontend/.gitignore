@@ -15,3 +15,6 @@ Thumbs.db
 
 # Environment files
 .env
+
+#build folder
+build/

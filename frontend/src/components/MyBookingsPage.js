@@ -5,14 +5,16 @@ const MyBookingsPage = () => {
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/bookings")
+        // fetch("http://localhost:5000/bookings")
+        fetch("https://hotel-management-system-es78.onrender.com/bookings")
             .then((response) => response.json())
             .then((data) => setBookings(data))
             .catch((error) => console.error("Error fetching bookings:", error));
     }, []);
 
     const handleCancel = (bookingId) => {
-        fetch(`http://localhost:5000/bookings/${bookingId}/cancel`, { method: "DELETE" })
+        // fetch(`http://localhost:5000/bookings/${bookingId}/cancel`, { method: "DELETE" })
+        fetch(`https://hotel-management-system-es78.onrender.com/${bookingId}/cancel`, { method: "DELETE" })
             .then(response => response.json())
             .then(data => {
                 console.log("Cancellation API Response:", data);
