@@ -15,7 +15,11 @@ const MyBookingsPage = () => {
     const handleCancel = (bookingId) => {
         // fetch(`http://localhost:5000/bookings/${bookingId}/cancel`, { method: "DELETE" })
         fetch(`https://hotel-management-system-es78.onrender.com/${bookingId}/cancel`, { method: "DELETE" })
-            .then(response => response.json())
+            // .then(response => response.json())
+            .then(response => {
+                console.log("Raw response:", response);
+                return response.json();
+            })
             .then(data => {
                 console.log("Cancellation API Response:", data);
                 if (!data.allowed) {
@@ -65,9 +69,9 @@ const MyBookingsPage = () => {
                             <div key={booking.id} className="col-md-6 mb-4">
                                 <div className="card shadow-sm">
                                     <div className="card-body">
-                                        <h5 className="card-title">{booking.hotelName || "Hotel Name Not Available"}</h5>
-                                        <p className="card-text"><strong>Check-in:</strong> {new Date(booking.checkIn).toLocaleDateString()}</p>
-                                        <p className="card-text"><strong>Check-out:</strong> {new Date(booking.checkOut).toLocaleDateString()}</p>
+                                        <h5 className="card-title">{booking.hotelname || "Hotel Name Not Available"}</h5>
+                                        <p className="card-text"><strong>Check-in:</strong> {new Date(booking.checkin).toLocaleDateString()}</p>
+                                        <p className="card-text"><strong>Check-out:</strong> {new Date(booking.checkout).toLocaleDateString()}</p>
                                         <p className="card-text"><strong>Booked by:</strong> {booking.customer} ({booking.email})</p>
                                         <button onClick={() => handleCancel(booking.id)} className="btn btn-danger w-100">
                                             Cancel Booking

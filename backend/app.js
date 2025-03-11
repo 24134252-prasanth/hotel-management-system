@@ -2,8 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
-const { router: hotelRoutes } = require("./core/controllers/hotelController");
-// const hotelRoutes = require("./core/controllers/hotelController");
+// const { router: hotelRoutes } = require("./core/controllers/hotelController");
+const hotelRoutes = require("./core/controllers/hotelController");
 const bookingRoutes = require("./core/controllers/bookingController");
 
 // Integrating Plugin

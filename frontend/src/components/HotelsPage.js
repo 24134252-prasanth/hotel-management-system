@@ -39,7 +39,8 @@ const HotelsPage = () => {
             <div className="container mt-4">
                 <h2 className="text-center mb-4">Available Hotels</h2>
                 <div className="row">
-                    {hotels.map((hotel) => (
+                    {/* {hotels.map((hotel) => ( */}
+                    {Array.isArray(hotels) && hotels.map((hotel) => (                
                         <div key={hotel.id} className="col-md-4 mb-4">
                             <div className="card shadow-sm">
                                 {/* <img 

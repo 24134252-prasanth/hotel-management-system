@@ -65,8 +65,8 @@ const HotelDetailsPage = () => {
                             {/* Cancellation Policy Section */}
                             <div className="alert alert-info">
                                 <h5>Cancellation Policy</h5>
-                                <p><strong>Penalty:</strong> {hotel.cancellationPolicy.penalty}</p>
-                                <p><strong>Free Cancellation Before:</strong> {hotel.cancellationPolicy.freeBeforeDays} days</p>
+                                <p><strong>Penalty:</strong> {hotel.cancellation_policy.penalty}</p>
+                                <p><strong>Free Cancellation Before:</strong> {hotel.cancellation_policy.freeBeforeDays} days</p>
                             </div>
 
                         </div>
@@ -88,7 +88,6 @@ const HotelDetailsPage = () => {
                     </div>
                 </div>
 
-                {/* Action Buttons */}
                 <div className="text-center mt-4">
                     <Link to={`/book/${hotel.id}`} className="btn btn-success me-3">Book Now</Link>
                     <Link to="/" className="btn btn-secondary">Back to Hotels</Link>
