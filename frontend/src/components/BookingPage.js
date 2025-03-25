@@ -60,11 +60,12 @@ const BookingPage = () => {
                     <form onSubmit={handleSubmit}>
                         {/* Name Input */}
                         <div className="mb-3">
-                            <label className="form-label">Your Name</label>
+                            <label className="form-label" htmlFor="yourName">Your Name</label>
                             <input 
                                 type="text" 
                                 name="customer" 
                                 className="form-control" 
+                                id="yourName"
                                 placeholder="Enter your name" 
                                 onChange={handleChange} 
                                 required 
@@ -73,11 +74,12 @@ const BookingPage = () => {
 
                         {/* Email Input */}
                         <div className="mb-3">
-                            <label className="form-label">Email</label>
+                            <label className="form-label" htmlFor="emailField">Email</label>
                             <input 
                                 type="email" 
                                 name="email" 
                                 className="form-control" 
+                                id="emailField"
                                 placeholder="Enter your email" 
                                 onChange={handleChange} 
                                 required 
@@ -86,11 +88,12 @@ const BookingPage = () => {
 
                         {/* Check-in Date */}
                         <div className="mb-3">
-                            <label className="form-label">Check-in Date</label>
+                            <label className="form-label" htmlFor="checkinDate">Check-in Date</label>
                             <input 
                                 type="date" 
                                 name="checkIn" 
                                 className="form-control" 
+                                id="checkinDate"
                                 min={new Date().toISOString().split("T")[0]} 
                                 onChange={handleChange} 
                                 required 
@@ -99,11 +102,12 @@ const BookingPage = () => {
 
                         {/* Check-out Date */}
                         <div className="mb-3">
-                            <label className="form-label">Check-out Date</label>
+                            <label className="form-label" htmlFor="checkoutDate">Check-out Date</label>
                             <input 
                                 type="date" 
                                 name="checkOut" 
-                                className="form-control" 
+                                className="form-control"
+                                id="checkoutDate" 
                                 min={formData.checkIn || new Date().toISOString().split("T")[0]} 
                                 onChange={handleChange} 
                                 required 
