@@ -29,7 +29,8 @@ const corsOptions = {
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors(corsOptions));
 
 // Core routes
 app.use("/hotels", hotelRoutes);
