@@ -12,6 +12,9 @@ const emailPlugin = require("./plugins/email-notifications/index");
 
 const app = express();
 
+// To Hide Express version
+app.disable("x-powered-by");
+
 // CORS Configuration
 const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : ["http://localhost:3000"];
 
