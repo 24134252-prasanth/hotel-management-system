@@ -77,7 +77,7 @@ const HotelDetailsPage = () => {
                         <div className="card shadow p-4">
                             <h5 className="fw-bold">Hotel Highlights</h5>
                             <ul className="list-unstyled">
-                                <li>⭐ {Math.floor(Math.random() * 3) + 3}-Star Rating</li>
+                                <li>⭐ {crypto.getRandomValues(new Uint32Array(1))[0] % 3 + 3}-Star Rating</li>
                                 <li>📶 Free WiFi</li>
                                 <li>🏊‍♂️ Swimming Pool</li>
                                 <li>💪 Fitness Center</li>
