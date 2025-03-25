@@ -12,6 +12,21 @@ const emailPlugin = require("./plugins/email-notifications/index");
 
 const app = express();
 
+// CORS Configuration
+const allowedOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : ["http://localhost:3000"];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("CORS policy does not allow this origin"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"], 
+  credentials: true, 
+};
+
 // Middleware
 app.use(express.json());
 app.use(cors());
