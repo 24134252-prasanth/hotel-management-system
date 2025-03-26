@@ -58,8 +58,18 @@ router.post("/", async (req, res) => {
         const hotelResult = await pool.query("SELECT name FROM hotels WHERE id = $1", [hotel_id]);
         const hotelName = hotelResult.rows.length > 0 ? hotelResult.rows[0].name : "Hotel Name Not Available";
 
+        // Hotel booking mail from Brevo
+        const emailResponse = await emailNotifications.sendEmail(
+            email,
+            "Booking Confirmation",
+            `Your booking at ${hotelName} has been successfully confirmed!`
+        );
+        if (!emailResponse.success) {
+            return res.status(500).json({ message: "Booking confirmed, but email failed to send." });
+        }
+
         // Include hotelName in response
-        res.status(201).json({ ...result.rows[0], hotelName });
+        res.status(201).json({ ...result.rows[0], hotelName, message: "Booking confirmed successfully, confirmation email sent."});
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -129,9 +139,22 @@ router.delete("/:id/cancel", async (req, res) => {
         await pool.query("DELETE FROM bookings WHERE id = $1", [req.params.id]);
 
         // Send cancellation email (for now just log it)
-        console.log(`Email to ${booking.email}: Your booking at ${hotel.name} has been cancelled.`);
+        // console.log(`Email to ${booking.email}: Your booking at ${hotel.name} has been cancelled.`);
+        // res.json({ message: "Booking cancelled successfully" });
 
-        res.json({ message: "Booking cancelled successfully" });
+        // Send cancellation email via Brevo
+        const emailResponse = await emailNotifications.sendEmail(
+            booking.email,
+            "Booking Cancellation Confirmation",
+            `Your booking at ${hotel.name} has been successfully cancelled.`
+        );
+
+        if (!emailResponse.success) {
+            return res.status(500).json({ message: "Booking cancelled, but email failed to send." });
+        }
+
+        res.json({ message: "Booking cancelled successfully, confirmation email sent." });
+
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

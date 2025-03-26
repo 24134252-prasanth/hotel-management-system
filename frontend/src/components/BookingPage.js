@@ -24,8 +24,9 @@ const BookingPage = () => {
             body: JSON.stringify({ hotel_id: id, ...formData }),
         })
             .then((response) => response.json())
-            .then(() => {
-                alert("Booking successful!");
+            .then((data) => {
+                // alert("Booking successful!");
+                alert(data.message)
                 navigate("/");
             })
             .catch((error) => console.error("Error booking hotel:", error));
