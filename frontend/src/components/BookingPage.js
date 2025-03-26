@@ -25,8 +25,8 @@ const BookingPage = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                alert("Booking successful!");
-                // alert(data.message)
+                // alert("Booking successful!");
+                alert(data.message)
                 navigate("/");
             })
             .catch((error) => console.error("Error booking hotel:", error));
